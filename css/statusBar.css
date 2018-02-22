@@ -1,0 +1,58 @@
+
+.statusBar {
+    height: 1.5rem;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    box-shadow:inset 0 -1px black;
+    background: var(--color-dark-black);
+}
+.statusBar.bottom {
+	box-shadow:inset 0 1px black;
+}
+
+
+/*************************
+ * Status Bar components *
+ *************************/
+ 
+.statusBar .left, .statusBar .right {
+	display: flex;
+	align-items: center;
+}
+.statusBar .right {
+	flex-direction: row-reverse;
+}
+ 
+.statusBar .right > .text {
+    padding-right: 0.2rem;
+}
+
+
+.statusBar .iconContainer {	
+    height: 1rem;
+    padding-left: 0.2rem;
+	padding-right: 0.2rem;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.statusBar .iconContainer > .count {
+	padding-left: 0.1rem;
+	align-self: flex-start;
+	font-size: 0.9rem;
+}
+
+.statusBar .icon {
+    height: 1rem;
+    filter: url(../index.html#filter-white);
+}
+
+

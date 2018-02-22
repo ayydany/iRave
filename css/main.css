@@ -1,0 +1,140 @@
+/***********************************
+ *  Main CSS file for the project  *
+ ***********************************/
+
+* {
+    /* disable text selection for all elements, for ease of mouse interaction */
+    -moz-user-select: none;
+}
+
+html {
+  font-size: 9px;
+
+  /*Font Rendering */
+
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    color: var(--color-black);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.padding {
+    flex: 1 1;
+}
+
+.noMouse {
+    pointer-events: none;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.removed {
+    display: none;
+}
+
+.empty *{
+    display: none;
+}
+
+
+/*************************
+ * Watchscreen components*
+ *************************/
+
+.watchScreen {
+    position: absolute;
+    bottom: 50%;
+    left: 30%;
+
+    width: 11rem;
+    height: 15.5rem;
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+    color: var(--color-white);
+    background: var(--color-dark-black);
+
+	cursor: pointer;
+}
+
+
+/*************************
+ * Main Area Components  *
+ *************************/
+
+.mainArea {
+	position:relative;
+	height: 14rem;
+	width: 100%;
+	overflow: hidden;
+}
+
+
+/******************
+ * Scrollable Hint*
+ ******************/
+
+.scrollableHint {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2rem;
+    /*height: 1.1rem;*/
+    z-index: 2;
+    pointer-events: none;
+}
+
+.scrollableHint.up {
+    top: 0;
+    background: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, .5) 40%, rgba(0, 0, 0, 0) 100%);
+}
+
+.scrollableHint.down {
+    bottom: 0;
+    background: linear-gradient(to top, black 0%, rgba(0, 0, 0, .5) 40%, rgba(0, 0, 0, 0) 100%);
+}
+
+.scrollableHint::before,
+.scrollableHint::after {
+    content: "";
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.scrollableHint.up::before {
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0) 1.5rem, black 1.5rem);
+}
+
+.scrollableHint.up::after {
+    top: 0;
+    right: 0;
+    background: radial-gradient(circle at bottom left, rgba(0, 0, 0, 0) 1.5rem, black 1.5rem);
+}
+
+.scrollableHint.down::before {
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(circle at top right, rgba(0, 0, 0, 0) 1.5rem, black 1.5rem);
+}
+
+.scrollableHint.down::after {
+    bottom: 0;
+    right: 0;
+    background: radial-gradient(circle at top left, rgba(0, 0, 0, 0) 1.5rem, black 1.5rem);
+}

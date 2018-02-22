@@ -1,0 +1,44 @@
+/**************************************************
+ *  Main CSS file for the watchscreen home-clock  *
+ *************************************************/
+
+.clockScreen {
+    position: absolute;
+	height: 100%;
+	width: 100%;
+	
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*******************************
+ * 		Clock Screen Elements  *
+ *******************************/
+
+.clockScreen .dateTime {
+    position: relative;
+    background: var(--color-black);
+    flex: 1;
+    display: flex;
+    justify-content: center;
+	align-items: center;
+    flex-direction: column;
+}
+
+.clockScreen .dateTime > .date {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: var(--color-blue);
+}
+
+.clockScreen .dateTime > .time.text{
+  font-size: 3.4rem;
+  line-height: 3rem;
+  color: var(--color-blue);
+}
+

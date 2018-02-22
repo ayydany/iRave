@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>iRave - Grupo 70</title>
+		<meta charset="utf-8">
+
+		<link href="css/font.css" rel="stylesheet">
+		<link href="css/colors.css" rel="stylesheet">
+		<link href="css/main.css" rel="stylesheet">
+		<link href="css/statusBar.css" rel="stylesheet">
+		<link href="css/clock.css" rel="stylesheet">
+		<link href="css/menu.css" rel="stylesheet">
+		<link href="css/alert.css" rel="stylesheet">
+		<link href="css/background.css" rel="stylesheet">
+
+		<script src="js/lib/jquery-1.11.0.min.js"></script>
+		<script src="js/lib/jquery.transit.min.js"></script>
+
+		<script src="js/main.js"></script>
+		<script src="js/keybinds.js"></script>
+		<script src="js/screen.js"></script>
+		<script src="js/clock.js"></script>
+		<script src="js/menu.js"></script>
+		<script src="js/menu-activity.js"></script>
+		<script src="js/menu-concert.js"></script>
+		<script src="js/menu-sms.js"></script>
+		<script src="js/alert.js"></script>
+		<script src="js/database.js"></script>
+
+
+	</head>
+	<body>
+		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="0">
+			<filter id="filter-white">
+				<feColorMatrix
+					type="matrix"
+					color-interpolation-filters="sRGB"
+					values="0.9647 0 0 0 0
+							0.9686 0 0 0 0
+							0.9843 0 0 0 0
+							0 0 0 1 0">
+				</feColorMatrix>
+			</filter>
+			<filter id="filter-gray">
+				<feColorMatrix
+					type="matrix"
+					color-interpolation-filters="sRGB"
+					values="0.5020 0 0 0 0
+							0.5059 0 0 0 0
+							0.5137 0 0 0 0
+							0 0 0 1 0" >
+				</feColorMatrix>
+			</filter>
+			<filter id="filter-black">
+				<feColorMatrix
+					type="matrix"
+					color-interpolation-filters="sRGB"
+					values="0.1255 0 0 0 0
+							0.1059 0 0 0 0
+							0.1294 0 0 0 0
+							0 0 0 1 0">
+				</feColorMatrix>
+			</filter>
+			<filter id="filter-dark-blue">
+				<feColorMatrix
+					type="matrix"
+					color-interpolation-filters="sRGB"
+					values="0.4118 0 0 0 0
+							0.8235 0 0 0 0
+							0.9059 0 0 0 0
+							0 0 0 1 0">
+				</feColorMatrix>
+			</filter>
+			<filter id="filter-blue">
+				<feColorMatrix
+					type="matrix"
+					color-interpolation-filters="sRGB"
+					values="0.4824 0 0 0 0
+							0.8941 0 0 0 0
+							1.0000 0 0 0 0
+							0 0 0 1 0">
+				</feColorMatrix>
+			</filter>
+			<filter id="filter-light-blue">
+				<feColorMatrix
+					type="matrix"
+					color-interpolation-filters="sRGB"
+					values="0.6549 0 0 0 0
+							0.8588 0 0 0 0
+							0.8471 0 0 0 0
+							0 0 0 1 0">
+				</feColorMatrix>
+			</filter>
+			<filter id="filter-green"><!--TODO: update to new green-->
+				<feColorMatrix
+					type="matrix"
+					color-interpolation-filters="sRGB"
+					values="0.4784 0 0 0 0
+							0.7020 0 0 0 0
+							0.0902 0 0 0 0
+							0 0 0 1 0">
+				</feColorMatrix>
+			</filter>
+		</svg>
+
+		<div class="hand">		
+			<img src="img/forearm.png" class="forearm">
+			<img src="img/iRave.png" class="clock">
+		
+		
+			<div name="up" class="watchButton up"></div>
+			<div name="down" class="watchButton down"></div>
+			<div name="ok" class="watchButton ok"></div>
+			<div name="back" class="watchButton back"></div>			
+		</div>
+		
+		<!-- JAVASCRIPT GENERATES CONTENT INSIDE THIS -->
+		<div id="watchScreen" class="watchScreen">
+			<div class="statusBar">
+				<div id="statusBarLeft" class="left"></div>
+				<div id="statusBarRight" class="right"></div>
+			</div>
+			<div id="mainArea" class="mainArea"></div>
+		</div>
+
+		<div class="adminControls">
+			<button id="addMinute">aumentar<br>minutos</button>
+			<button id="addHour">aumentar<br>hora</button>
+			<button id="addDay">aumentar<br>dia</button>
+			<button id="nextEvent">próximo<br>evento</button>
+			<button id="getSMS">receber<br>sms</button>
+		</div>
+		
+		<div id="debugOutput"></div>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+/**********************************************
+ *  Main CSS file for the watchscreen alerts  *
+ *********************************************/
+
+.alert {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    
+	background: var(--color-black);	
+	color: var(--color-blue);
+}
+
+
+/****************************
+ * 		Alert Elements      *
+ ****************************/
+
+.alert .header {	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.alert .header > .text {
+	font-size: 1.5rem;
+	padding-left: .2rem;
+	padding-right: .4rem;
+}
+
+.alert .header > .icon, .alert .header > .photo {
+	  max-height: 3rem;
+	  padding-left: .4rem;
+	  padding-right: .2rem;
+}
+.alert .header > .icon {
+	filter: url(../index.html#filter-blue);
+}
+
+
+.alert .footer {	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.alert.sms .footer > .text {
+  font-size: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.alert.sms .footer > .text.double {
+  font-size: 1.1rem;
+}
+.alert.sms .footer > .text.triple {
+  font-size: 1rem;
+}
+.alert.sms .footer > .text.quadruple {
+  font-size: 0.8em;
+}
+
+.alert.activity .footer > .text, .alert.concert .footer > .text {
+	text-align: center;
+	font-size: 1.5rem;
+}

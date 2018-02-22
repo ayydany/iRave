@@ -1,0 +1,83 @@
+body {
+	background: url("../img/festival.jpg") no-repeat center center fixed;
+	background-size:cover;
+	}
+	
+.hand{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  
+.hand .clock{
+	position: fixed;
+	height: 280px;
+	width: 270px;
+	bottom: 140px;
+	left: 165px;
+  }
+  
+.hand .forearm{
+	position: fixed;
+	width: 858px;
+	bottom: 0;
+	left: 0;
+  }
+  
+  
+.watchScreen {
+    position: fixed;
+    bottom: 205px;
+    left: 245px;
+}
+
+.adminControls {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	opacity: 0.2;
+	transition: opacity 100ms;
+	
+	display: flex;
+	flex-direction: column;
+}
+.adminControls:hover {
+	opacity: 1;
+}
+.adminControls button{
+	position: relative;
+	padding: 2px;
+	margin: 2px;
+}
+
+/* Button stuff */
+
+#buttonHint {
+	position: fixed;
+	height: 14px;
+	width: 14px;
+ }
+ 
+.watchButton {
+	position: fixed;
+	left:  345px;
+	bottom: 305px;
+
+	width: 4rem;
+	height:5rem;
+	opacity: 0;
+	background: black;
+}
+
+.watchButton.ok {
+  bottom: 255px;
+}
+
+.watchButton.down {
+  bottom: 205px;
+}
+
+.watchButton.back {
+  left:  208px;
+}
+

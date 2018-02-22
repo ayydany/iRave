@@ -1,0 +1,232 @@
+/********************************************
+ *  Main CSS file for the watchscreen menu  *
+ ********************************************/
+
+.menu {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+
+/****************************
+ * 		Menu Options          *
+ ****************************/
+
+.menu .option {
+    position: relative;
+    height:25%;
+    flex: 1;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    vertical-align: bottom;
+
+    box-shadow:inset 0 -1px black, -1px 0 black;
+    color: var(--color-blue);
+    background: var(--color-black);
+}
+.menu .option.disabled {
+	color: var(--color-gray);
+}
+.menu .option.selected {
+    color: var(--color-black);
+    background: var(--color-dark-blue);
+}
+.menu .option.selected.disabled {
+	background: var(--color-gray);
+}
+.menu .option.unselectable {
+  	justify-content: center;
+	color: var(--color-gray);
+    background: var(--color-black);
+}
+
+
+.menu .option.void {
+    background: url("../img/pattern/pattern.png") repeat;
+}
+.menu .option.void *{
+    display: none;
+}
+
+
+
+.menu .option .text {
+    font-size: 1.2rem;
+    padding-left: 0.3rem;
+}
+.menu .option.unselectable > .text{
+	font-size:1rem;
+	padding-left:0.2rem;
+	padding-right:0.2rem;
+	text-align: center;
+}
+
+.menu .option .photo {
+	max-height: 2.6rem;
+	max-width: 2.6rem;
+}
+
+.menu .option .icon{
+     max-height: 2rem;
+     max-width: 2rem;
+ }
+.menu .option .icon {
+	filter: url(../index.html#filter-blue);
+}
+.menu .option.disabled .icon {
+ 	filter: url(../index.html#filter-gray);
+}
+.menu .option.selected .icon {
+    filter: url(../index.html#filter-black);
+}
+
+.menu .option .iconContainer {
+	position: relative;
+	height: 100%;
+	width: 2.6rem;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.menu .option .iconContainer > .count {
+	position: absolute;
+	bottom: 0;
+	right: 0.2rem;
+	transform: translateX(50%);	/* slight overlap with option text. this is intended */
+	
+	font-size: 1rem;
+}
+
+
+/***************
+* corner stuff *
+***************/
+
+.menu .option .corner {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.menu .option .corner .text {
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
+    font-size: 0.8rem;
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+}
+.menu .option.active > .corner > .text {
+	color: var(--color-black);
+    background: var(--color-green);
+}
+
+
+.menu .option .corner > .icon {
+    display: none;
+}
+.menu .option.active .corner > .icon {
+    display: unset;
+    padding-right: 0.1rem;
+    height: 0.6rem;
+    filter: url(../index.html#filter-green);
+}
+.menu .option.selected.active .corner > .icon {
+    filter: url(../index.html#filter-black);
+}
+
+
+/**********************
+* Large-sized Options *
+**********************/
+
+.menu .option.double{
+  height:50%;
+  flex-grow: 2;
+}
+
+.menu .option.triple{
+  height:75%;
+  flex-grow: 3;
+}
+
+.menu .option.quadruple{
+  height:100%;
+  flex-grow: 4;
+}
+
+
+
+/************************
+* multi-concert options *
+************************/
+
+.menu .option.multiConcert {
+	flex-direction: column;
+	justify-content: center;
+    align-items: flex-start;
+}
+
+.menu .option.multiConcert .concertContainer {
+	display: flex;
+	align-items: center;
+}
+.menu .option.multiConcert .concertContainer > .icon.subscribed {
+	display: none;
+}
+.menu .option.multiConcert .concertContainer.active > .icon.subscribed {
+	display: unset;
+	font-size: 1rem;
+	padding-left: 0.2rem;
+	height: 0.6rem;
+}
+
+
+/****************************
+ * 		SMS Menu Options      *
+ ****************************/
+
+.menu.sms .option.reversed {
+  flex-direction: row-reverse;
+}
+
+.menu.sms .option:not(.unselectable) > .text{
+  font-size:1rem;
+  padding-left:0.6rem;
+  padding-right:2.4rem;
+}
+.menu.sms .option.reversed > .text {
+  padding-top: 1rem;
+  padding-left:2.4rem;
+  padding-right:0.6rem;
+}
+.menu.sms .option .icon{
+	max-height: 1.8rem;
+	max-width: 1.8rem;
+}
+
+.menu.sms .option > .iconContainer{
+  position:absolute;  
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  width: 2.4rem;
+}
+.menu.sms .option.reversed > .iconContainer{
+  left: 0;
+  right: unset;
+}
+.menu.sms .option:not(.reversed):not(.double):not(.triple):not(.quadruple) > .iconContainer{
+  padding-top: 1.4rem;
+}
+
+
