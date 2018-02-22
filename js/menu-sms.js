@@ -113,7 +113,7 @@ var formatSMSTime = function( datetime ){
  	var today = getCurrentTime();
  	
  	if( areDaysEqual(today, datetime) ){
- 		return datetime.toLocaleFormat("%H:%M");
+ 		return datetime.toLocaleTimeString('pt-PT', {hour:'2-digit', minute:'2-digit'});
  	} else {
  		return getDateShortString( datetime );
 	}

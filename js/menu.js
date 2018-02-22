@@ -20,7 +20,7 @@ var updateStatusBarTitle = function( icon, text ){
 //updates the status bar to show the current time
 var updateStatusBarTime = function(){
 	$("#statusBarRight").html(
-    	$("<span/>").addClass("text").text( getCurrentTime().toLocaleFormat("%H:%M") )
+    	$("<span/>").addClass("text").text( getCurrentTime().toLocaleTimeString('pt-PT', {hour:'2-digit', minute:'2-digit'}) )
     )
 }
 

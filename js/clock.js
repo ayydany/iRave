@@ -25,7 +25,7 @@ var updateClockScreen = function( screenObject ){
 	var screen = screenObject.html;
 	
 	screen.find(".dateTime .date .text").text( getDateString(getCurrentTime()) );
-	screen.find(".dateTime .time.text").text( getCurrentTime().toLocaleFormat("%H:%M") );
+	screen.find(".dateTime .time.text").text( getCurrentTime().toLocaleTimeString('pt-PT', {hour:'2-digit', minute:'2-digit'}) );
 	
 	var nextConcert = getConcertActiveQueue()[0];
 	var nextActivity = getActivityActiveQueue()[0];

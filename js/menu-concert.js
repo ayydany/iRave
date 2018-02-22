@@ -267,7 +267,7 @@ var newConcertActiveQueueMenu = function (screenObject) {
 				icon: getDateIcon(concert.datetime),
 				text: concert.band.name,
 				cornerIcon: "cartaz/eye.svg",
-				cornerText: concert.datetime.toLocaleFormat("%H:%M"),
+				cornerText: concert.datetime.toLocaleTimeString('pt-PT', {hour:'2-digit', minute:'2-digit'}),
 
 				subject: concert,
 				updateCallback: composition(
@@ -384,7 +384,7 @@ var newConcertStageMenu = function (screenObject) {
 				icon: "",
 				text: concert.band.name,
 				cornerIcon: "cartaz/eye.svg",
-				cornerText: concert.datetime.toLocaleFormat("%H:%M"),
+				cornerText: concert.datetime.toLocaleTimeString('pt-PT', {hour:'2-digit', minute:'2-digit'}),
 
 				subject: concert,
 				updateCallback: composition(
@@ -516,7 +516,7 @@ var newConcertDayMenu = function (screenObject) {
 					icon: getConcertStages()[concert.stageID].icon,
 					text: concert.band.name,
 					cornerIcon: "cartaz/eye.svg",
-					cornerText: concert.datetime.toLocaleFormat("%H:%M"),
+					cornerText: concert.datetime.toLocaleTimeString('pt-PT', {hour:'2-digit', minute:'2-digit'}),
 
 					subject: concert,
 					updateCallback: composition(
@@ -544,7 +544,7 @@ var newConcertDayMenu = function (screenObject) {
 			option = addMultiConcertOption(screenObject,
 				{
 					cornerIcon: "cartaz/eye.svg",
-					cornerText: concert.datetime.toLocaleFormat("%H:%M"),
+					cornerText: concert.datetime.toLocaleTimeString('pt-PT', {hour:'2-digit', minute:'2-digit'}),
 
 					subject: { elements:simultaneousConcerts },
 					selectionCallback: prepareSubmenuOptionFunc(),
@@ -605,7 +605,7 @@ var newConcertHourMenu = function (screenObject) {
 				icon: getConcertStages()[concert.stageID].icon,
 				text: concert.band.name,
 				cornerIcon: "cartaz/eye.svg",
-				cornerText: concert.datetime.toLocaleFormat("%H:%M"),
+				cornerText: concert.datetime.toLocaleTimeString('pt-PT', {hour:'2-digit', minute:'2-digit'}),
 
 				subject: concert,
 				updateCallback: composition(
@@ -696,7 +696,7 @@ var newConcertAlertMenu = function (screenObject) {
 			text: "",
 
 			cornerIcon: "cartaz/eye.svg",
-			cornerText: concert.datetime.toLocaleFormat("%H:%M"),
+			cornerText: concert.datetime.toLocaleTimeString('pt-PT', {hour:'2-digit', minute:'2-digit'}),
 
 			subject: concert,
 			updateCallback: composition(
