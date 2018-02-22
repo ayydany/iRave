@@ -1,6 +1,6 @@
 # iRave
 
-![screenshot](https://raw.githubusercontent.com/DanyBoss/iRave/master/preview.png)
+![screenshot](https://raw.githubusercontent.com/DanyBoss/iRave/master/preview.jpg)
 Preview of the visualization
 
 [Live Version](https://danyboss.github.io/olympics/)
