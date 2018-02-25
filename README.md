@@ -3,7 +3,7 @@
 ![screenshot](https://raw.githubusercontent.com/DanyBoss/iRave/master/preview.jpg)
 Preview of the visualization
 
-[Live Version](https://danyboss.github.io/olympics/)
+[Live Version](https://danyboss.github.io/irave/index.html)
 
 ## About
 A small smartclock mockup application for Music Festivals.
