@@ -6,7 +6,7 @@ Preview of the visualization
 [Live Version](https://danyboss.github.io/irave/index.html)
 
 ## About
-A small smartclock mockup application for Music Festivals.
+A smartwatch mockup application for Music Festivals.
 
 ## Credits
 This app is made purely using JS and some JQuery.
