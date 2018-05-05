@@ -4,7 +4,7 @@
 
 * {
     /* disable text selection for all elements, for ease of mouse interaction */
-    -moz-user-select: none;
+    user-select: none;
 }
 
 html {
