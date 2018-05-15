@@ -39,7 +39,7 @@
 	  padding-right: .2rem;
 }
 .alert .header > .icon {
-	filter: url(../index.html#filter-blue);
+	filter: url(#filter-blue);
 }
 
 

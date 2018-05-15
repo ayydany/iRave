@@ -75,13 +75,13 @@
      max-width: 2rem;
  }
 .menu .option .icon {
-	filter: url(../index.html#filter-blue);
+	filter: url(#filter-blue);
 }
 .menu .option.disabled .icon {
- 	filter: url(../index.html#filter-gray);
+ 	filter: url(#filter-gray);
 }
 .menu .option.selected .icon {
-    filter: url(../index.html#filter-black);
+    filter: url(#filter-black);
 }
 
 .menu .option .iconContainer {
@@ -137,10 +137,10 @@
     display: unset;
     padding-right: 0.1rem;
     height: 0.6rem;
-    filter: url(../index.html#filter-green);
+    filter: url(#filter-green);
 }
 .menu .option.selected.active .corner > .icon {
-    filter: url(../index.html#filter-black);
+    filter: url(#filter-black);
 }
 
 

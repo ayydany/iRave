@@ -1,4 +1,3 @@
-
 .statusBar {
     height: 1.5rem;
     width: 100%;
@@ -52,7 +51,7 @@
 
 .statusBar .icon {
     height: 1rem;
-    filter: url(../index.html#filter-white);
+    filter: url(#filter-white);
 }
 
 
