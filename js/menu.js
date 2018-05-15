@@ -1,10 +1,8 @@
-
-
 /**************************
  *  Status bar functions  *
  **************************/
 
-//updates the status bar to show the given icon and text, along with the current time (optionally provided)
+// updates the status bar to show the given icon and text, along with the current time (optionally provided)
 var updateStatusBarTitle = function( icon, text ){
 	$("#statusBarLeft").html(
     	$("<div/>").addClass("iconContainer").append(
@@ -17,7 +15,7 @@ var updateStatusBarTitle = function( icon, text ){
     updateStatusBarTime();
 }
 
-//updates the status bar to show the current time
+// updates the status bar to show the current time
 var updateStatusBarTime = function(){
 	$("#statusBarRight").html(
     	$("<span/>").addClass("text").text( getCurrentTime().toLocaleTimeString('pt-PT', {hour:'2-digit', minute:'2-digit'}) )
@@ -28,8 +26,8 @@ var updateStatusBarTime = function(){
  *  Selection-related functions  *
  ******************************/
 
-//Sets up menu internals to ready it for selection,
-//and selects the correct option.
+// Sets up menu internals to ready it for selection,
+// and selects the correct option.
 //  screenObject.data.selectedIndex: index of menu option to start selection on. (if -1: first non-disabled, or last disabled)
 var initMenuSelection = function( screenObject ){
 	var menu = screenObject.html;
@@ -89,19 +87,17 @@ var updateMenuSelection = function( screenObject ){
 	}
 
 	
-	//unselect whatever was already selected, then select the right thing, and run selectionCallback on it
+	// unselect whatever was already selected, then select the right thing, and run selectionCallback on it
 	options.removeClass("selected");
 	
 	var selected =  getSelectedOption(screenObject);
 	selected.addClass("selected");
 	
-	console.log(selected, screenObject);
-	
 	selected.data("selectionCallback")( selected );
 }
 
 
-//returns the jquery object for for the selected option in a given menu
+// returns the jquery object for for the selected option in a given menu
 // screenObject: the object representing the menu to find selected option in
 // forceFind (optional): whether to always return SOME option, if none is selected
 var getSelectedOption = function( screenObject, forceFind ){
@@ -120,20 +116,20 @@ var getSelectedOption = function( screenObject, forceFind ){
  *  Scroll-related functions  *
  ******************************/
 
-//Sets up menu internals to ready it for scrolling,
-//and scrolls it to fit the correct option on screen.
+// Sets up menu internals to ready it for scrolling,
+// and scrolls it to fit the correct option on screen.
 //  screenObject.data.scrollIndex:   index of menu option to start scroll on. (if -1: uses selectedIndex)
 //  screenObject.data.isAscending:   whether scroll is going up or down.
 var initMenuScroll = function( screenObject ){
 	var menu = screenObject.html;
 
-	//create scrollable hints and add them to menu
+	// create scrollable hints and add them to menu
 	var hintUp = $("<div/>").addClass("scrollableHint").addClass("up");
 	var hintDown = $("<div/>").addClass("scrollableHint").addClass("down");
 
 	menu.addClass("scrollable").append(hintUp).append(hintDown);
 
-	//calculate option/total heights
+	// calculate option/total heights
 	var options = menu.find(".option");
 	
 	menu.data("scroll-minIndex", 0);
@@ -161,14 +157,14 @@ var initMenuScroll = function( screenObject ){
 		}
 	);
 
-	//calculate menu min/max scroll
+	// calculate menu min/max scroll
 	var minY = 0;
 	var maxY = Math.max( 0, totalHeight-4 );
 
 	screenObject.data.scrollMinY = minY;
 	screenObject.data.scrollMaxY = maxY;
 
-	//calculate ascending/descending scroll positions for each option
+	// calculate ascending/descending scroll positions for each option
 	options.each(
 		function(currIndex){
 			var option = $(this);
@@ -199,7 +195,7 @@ var initMenuScroll = function( screenObject ){
 	updateMenuScroll( screenObject );
 }
 
-//Scrolls the given menu object's view to the correct option on screen.
+// Scrolls the given menu object's view to the correct option on screen.
 //  screenObject.data.scrollIndex:   index of menu option to start scroll on. (if -1: uses selectedIndex)
 //  screenObject.data.isAscending:   whether scroll is going up or down.
 var updateMenuScroll = function( screenObject ){
@@ -224,10 +220,10 @@ var updateMenuScroll = function( screenObject ){
 			break;
 	}
 
-	//get correct scroll amount
+	// get correct scroll amount
 	option = $( menu.find(".option")[screenObject.data.scrollIndex] );
 
-	//manual tweak: autoscroll shows the wrong side when it lands on a triple option
+	// manual tweak: autoscroll shows the wrong side when it lands on a triple option
 	if( autoScrolling && option.data( "scroll-height" ) == 3 ){
 		screenObject.data.isAscending = !screenObject.data.isAscending
 	}
@@ -235,7 +231,7 @@ var updateMenuScroll = function( screenObject ){
 	var scrollY = getScrollY(screenObject, option);
 
 
-	//update menu scroll position
+	// update menu scroll position
 	menu.finish().transition(
 		{ y: "-" + (3.5*scrollY) + "rem" },
 		screenObject.data.scrollDuration,
@@ -269,9 +265,9 @@ var updateMenuScroll = function( screenObject ){
 }
 
 
-//returns the current scrollY for the given screen
-//screenObject: the screen for which we want the current scroll
-//option (optional): the option at which the scroll is currently positioned
+// returns the current scrollY for the given screen
+// screenObject: the screen for which we want the current scroll
+// option (optional): the option at which the scroll is currently positioned
 var getScrollY = function( screenObject, option ){	
 	option = option || $( getScreenHTML(screenObject).find(".option")[screenObject.data.scrollIndex] );
 	
@@ -286,7 +282,7 @@ var getScrollY = function( screenObject, option ){
  *  Selection callback functions *
  *******************************/
 
-//returns a FUNCTION that updates the given screenObject's scroll to match the current menu's
+// returns a FUNCTION that updates the given screenObject's scroll to match the current menu's
 var matchScrollFunc = function( screenObject ){
 	return function( currScreen ){
 		screenObject.data.scrollIndex = currScreen.data.scrollIndex;
@@ -294,7 +290,7 @@ var matchScrollFunc = function( screenObject ){
 	}
 }
 
-//returns a FUNCTION that updates the given screenObject's selection to match the current menu's
+// returns a FUNCTION that updates the given screenObject's selection to match the current menu's
 var matchSelectionFunc = function( screenObject ){
 	return function( option ){
 		var currScreen = option.data("screenObject");
@@ -303,7 +299,7 @@ var matchSelectionFunc = function( screenObject ){
 	}
 }
 
-//returns a FUNCTION that sets up the menu action to do a "nope" shake
+// returns a FUNCTION that sets up the menu action to do a "nope" shake
 var prepareNopeFunc  = function( ){
 	return function( option ){
 		var screenObject = option.data("screenObject");
@@ -312,9 +308,9 @@ var prepareNopeFunc  = function( ){
 	}
 }
 
-//returns a FUNCTION that sets up the menu action to run a given callback
-//runCallback: the function to run when "ok" is pressed. (expects option as its argument)
-//previewCallback (optional): function to run to preview changes to option before actually affecting database. (expects copyOption, originalOption as its arguments)
+// returns a FUNCTION that sets up the menu action to run a given callback
+// runCallback: the function to run when "ok" is pressed. (expects option as its argument)
+// previewCallback (optional): function to run to preview changes to option before actually affecting database. (expects copyOption, originalOption as its arguments)
 //  NOTE: if previewCallback returns true, operation will be aborted, and a "nope" animation will play
 var prepareCallbackOptionFunc  = function( runCallback, previewCallback ){
 	previewCallback = previewCallback || function(){};
@@ -329,7 +325,7 @@ var prepareCallbackOptionFunc  = function( runCallback, previewCallback ){
 	}
 }
 
-//returns a FUNCTION that sets up the menu action to open a submenu
+// returns a FUNCTION that sets up the menu action to open a submenu
 // paramName (optional): name of parameter where the submenu parameters are stored ("submenuParams" by default)
 var prepareSubmenuOptionFunc  = function( paramName ){
 	return function( option ){
@@ -341,7 +337,7 @@ var prepareSubmenuOptionFunc  = function( paramName ){
 }
 
 
-//returns a FUNCTION that sets up the menu action to open a submenu, but only if the option being run is not disabled
+// returns a FUNCTION that sets up the menu action to open a submenu, but only if the option being run is not disabled
 // paramName (optional): name of parameter where the submenu parameters are stored
 var prepareConditionalSubmenuOptionFunc = function( paramName ){
 	return function( option ){		
@@ -389,7 +385,7 @@ var runConditionalSubmenuOptionFunc = function( paramName ){
  *  Option-related functions  *
  ******************************/
 
-//updates all options that have an appropriate callback in the given menu
+// updates all options that have an appropriate callback in the given menu
 var updateMenuOptions = function( screenObject ){
  	screenObject.html.find(".option").each(
  		function(){
@@ -401,15 +397,15 @@ var updateMenuOptions = function( screenObject ){
  	//updateStatusBarTime();
 }
 
-//updates a menu option
+// updates a menu option
 var updateOption = function( option ){
 	option.data("updateCallback")( option );
 }
 
 
-//updates a menu option, by animating a transition
-//option: the option to animate
-//finishedCallback (optional): function to call when animation completes
+// updates a menu option, by animating a transition
+// option: the option to animate
+// finishedCallback (optional): function to call when animation completes
 var animateOption = function( option, finishedCallback ){
     //disable buttons while we animate, buffering the last input
 	startBufferingButtons();
@@ -449,7 +445,7 @@ var animateOption = function( option, finishedCallback ){
     );
 }
 
-//Returns a FUNCTION that, given an option, adds or removes a css class to it, depending on whether a certain attribute of its subject is true
+// Returns a FUNCTION that, given an option, adds or removes a css class to it, depending on whether a certain attribute of its subject is true
 attributeUpdateFunc = function(attribute, cssClass, invert){
 	return function(option){
 		var hasAttribute = option.data("subject")[attribute];
@@ -465,7 +461,7 @@ attributeUpdateFunc = function(attribute, cssClass, invert){
 	}
 }
 
-//Returns a FUNCTION that, given an option, adds or removes a css class to it, depending on whether any/all of its elements have a given attribute
+// Returns a FUNCTION that, given an option, adds or removes a css class to it, depending on whether any/all of its elements have a given attribute
 elementAttributeUpdateFunc = function(attribute, cssClass, requireAll){
 	return function(option){
 		var subject = option.data("subject");
@@ -483,7 +479,7 @@ elementAttributeUpdateFunc = function(attribute, cssClass, requireAll){
 	}
 }
 
-//Returns a FUNCTION that, given an option, updates its icon's count with how many of of its subjects' elements have a given attribute
+// Returns a FUNCTION that, given an option, updates its icon's count with how many of of its subjects' elements have a given attribute.
 countUpdateFunc = function(attribute, showWhenZero){
 	return function(option){
 		var count = countActiveElements( option.data("subject"), attribute);
