@@ -1,6 +1,6 @@
 # iRave
 
-![screenshot](https://raw.githubusercontent.com/DanyBoss/iRave/master/preview.jpg)
+![screenshot](https://raw.githubusercontent.com/DanyBoss/iRave/master/preview.png)
 [Live Version](http://irave.ayydany.space)
 
 ## About
